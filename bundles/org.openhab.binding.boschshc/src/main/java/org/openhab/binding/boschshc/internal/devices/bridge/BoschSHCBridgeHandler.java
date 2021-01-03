@@ -220,7 +220,7 @@ public class BoschSHCBridgeHandler extends BaseBridgeHandler {
 
         try {
             logger.debug("Sending http request to Bosch to request clients: {}", httpClient);
-            String url = httpClient.createSmartHomeUrl("devices");
+            String url = httpClient.getBoschSmartHomeUrl("devices");
             ContentResponse contentResponse = httpClient.createRequest(url, GET).send();
 
             String content = contentResponse.getContentAsString();
@@ -298,7 +298,7 @@ public class BoschSHCBridgeHandler extends BaseBridgeHandler {
         if (httpClient != null) {
             try {
                 logger.debug("Sending http request to Bosch to request rooms");
-                String url = httpClient.createSmartHomeUrl("rooms");
+                String url = httpClient.getBoschSmartHomeUrl("rooms");
                 ContentResponse contentResponse = httpClient.createRequest(url, GET).send();
 
                 String content = contentResponse.getContentAsString();
@@ -344,7 +344,7 @@ public class BoschSHCBridgeHandler extends BaseBridgeHandler {
             return null;
         }
 
-        String url = httpClient.createServiceUrl(stateName, deviceId);
+        String url = httpClient.getServiceUrl(stateName, deviceId);
         Request request = httpClient.createRequest(url, GET).header("Accept", "application/json");
 
         logger.debug("refreshState: Requesting \"{}\" from Bosch: {} via {}", stateName, deviceId, url);
@@ -397,7 +397,7 @@ public class BoschSHCBridgeHandler extends BaseBridgeHandler {
         }
 
         // Create request
-        String url = httpClient.createServiceUrl(serviceName, deviceId);
+        String url = httpClient.getServiceUrl(serviceName, deviceId);
         Request request = httpClient.createRequest(url, PUT, state);
 
         // Send request
