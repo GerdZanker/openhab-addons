@@ -206,12 +206,15 @@ The smoke detector warns you in case of fire.
 
 ## Limitations
 
-- Discovery of Things
-- Discovery of Bridge
+No major limitation known.
+Check list of [openhab issues with "boshshc"](https://github.com/openhab/openhab-addons/issues?q=is%3Aissue+boschshc+) 
 
 ## Discovery
 
-Configuration via configuration files or UI (see below).
+Bridge discovery is supported via mDNS.
+Things discovery is started after successful pairing.
+
+Configuration via configuration files or UI supported too (see below).
 
 ## Bridge Configuration
 
@@ -239,19 +242,19 @@ Alternatively, the log can be viewed using the OpenHab Log Viewer (frontail) via
 Example:
 
 ```bash
-2020-08-11 12:42:49.490 [INFO ] [chshc.internal.BoschSHCBridgeHandler] - Found device: name=Heizung id=hdm:HomeMaticIP:3014F711A000XXXXXXXXXXXX
-2020-08-11 12:42:49.495 [INFO ] [chshc.internal.BoschSHCBridgeHandler] - Found device: name=-RoomClimateControl- id=roomClimateControl_hz_1
-2020-08-11 12:42:49.497 [INFO ] [chshc.internal.BoschSHCBridgeHandler] - Found device: name=-VentilationService- id=ventilationService
-2020-08-11 12:42:49.498 [INFO ] [chshc.internal.BoschSHCBridgeHandler] - Found device: name=Großes Fenster id=hdm:HomeMaticIP:3014F711A000XXXXXXXXXXXX
-2020-08-11 12:42:49.501 [INFO ] [chshc.internal.BoschSHCBridgeHandler] - Found device: name=-IntrusionDetectionSystem- id=intrusionDetectionSystem
-2020-08-11 12:42:49.502 [INFO ] [chshc.internal.BoschSHCBridgeHandler] - Found device: name=Rollladen id=hdm:HomeMaticIP:3014F711A000XXXXXXXXXXXX
-2020-08-11 12:42:49.502 [INFO ] [chshc.internal.BoschSHCBridgeHandler] - Found device: name=Heizung id=hdm:HomeMaticIP:3014F711A000XXXXXXXXXXXX
-2020-08-11 12:42:49.503 [INFO ] [chshc.internal.BoschSHCBridgeHandler] - Found device: name=Heizung Haus id=hdm:ICom:819410185:HC1
-2020-08-11 12:42:49.503 [INFO ] [chshc.internal.BoschSHCBridgeHandler] - Found device: name=-RoomClimateControl- id=roomClimateControl_hz_6
-2020-08-11 12:42:49.504 [INFO ] [chshc.internal.BoschSHCBridgeHandler] - Found device: name=PhilipsHueBridgeManager id=hdm:PhilipsHueBridge:PhilipsHueBridgeManager
-2020-08-11 12:42:49.505 [INFO ] [chshc.internal.BoschSHCBridgeHandler] - Found device: name=Rollladen id=hdm:HomeMaticIP:3014F711A000XXXXXXXXXXXX
-2020-08-11 12:42:49.506 [INFO ] [chshc.internal.BoschSHCBridgeHandler] - Found device: name=Rollladen id=hdm:HomeMaticIP:3014F711A000XXXXXXXXXXXX
-2020-08-11 12:42:49.507 [INFO ] [chshc.internal.BoschSHCBridgeHandler] - Found device: name=Central Heating id=hdm:ICom:819410185
+2023-01-23 20:28:54.725 [INFO ] [rnal.discovery.ThingDiscoveryService] - Found device: name=RoomLightControl id=roomLightControl_hz_XXXXXXXX
+2023-01-23 20:28:54.725 [INFO ] [rnal.discovery.ThingDiscoveryService] - .... service: BinarySwitch
+2023-01-23 20:28:54.725 [INFO ] [rnal.discovery.ThingDiscoveryService] - Found device: name=Zimmer1 Rauchmelder id=hdm:HomeMaticIP:3014F711XXXXXXXXXXXXXXXX
+2023-01-23 20:28:54.725 [INFO ] [rnal.discovery.ThingDiscoveryService] - .... service: BatteryLevel
+2023-01-23 20:28:54.725 [INFO ] [rnal.discovery.ThingDiscoveryService] - .... service: Alarm
+2023-01-23 20:28:54.725 [INFO ] [rnal.discovery.ThingDiscoveryService] - .... service: SmokeDetectorCheck
+2023-01-23 20:28:54.725 [INFO ] [rnal.discovery.ThingDiscoveryService] - Found device: name=-RoomClimateControl- id=roomClimateControl_hz_XXXXXXXX
+2023-01-23 20:28:54.725 [INFO ] [rnal.discovery.ThingDiscoveryService] - .... service: TemperatureLevelConfiguration
+2023-01-23 20:28:54.726 [INFO ] [rnal.discovery.ThingDiscoveryService] - .... service: ThermostatSupportedControlMode
+2023-01-23 20:28:54.726 [INFO ] [rnal.discovery.ThingDiscoveryService] - .... service: RoomClimateControl
+2023-01-23 20:28:54.726 [INFO ] [rnal.discovery.ThingDiscoveryService] - .... service: TemperatureLevel
+2023-01-23 20:28:54.738 [INFO ] [rnal.discovery.ThingDiscoveryService] - Found device: name=Zimmer 3 Rollo id=hdm:HomeMaticIP:3014F711XXXXXXXXXXXXXXXX
+2023-01-23 20:28:54.738 [INFO ] [rnal.discovery.ThingDiscoveryService] - .... service: ShutterControl
 ```
 
 ## Thing Configuration
