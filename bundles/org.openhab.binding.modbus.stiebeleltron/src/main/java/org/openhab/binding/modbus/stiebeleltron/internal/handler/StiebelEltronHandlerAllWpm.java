@@ -346,7 +346,7 @@ public class StiebelEltronHandlerAllWpm extends BaseThingHandler {
             try {
                 if (GROUP_SYSTEM_PARAMETER_ALLWPM.equals(channelUID.getGroupId())) {
                     switch (channelUID.getIdWithoutGroup()) {
-                        case CHANNEL_OPERATION_MODE:
+                        case CHANNEL_OPERATING_MODE:
                             writeInt16(1500, getInt16Value(command));
                             break;
                         case CHANNEL_HC1_COMFORT_TEMPERATURE:
